@@ -54,7 +54,7 @@ input {
     height: 100vh;
     width: 100vw;
     background-color: var(--primary-color);
-    /* background: linear-gradient(0deg, rgba(210,208,204,0.7987570028011204) 0%, rgba(27,28,21,0.804359243697479) 0%), url("https://i.ibb.co/Fg3GbPM/poczta-polska.png"); */
+   
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
@@ -70,7 +70,7 @@ input {
     top: 0;
     background: url("https://i.ibb.co/fHzTN6k/pp-logo-przezrocz-monochrom.png");
     width: 100vw;
-    height: 250px;
+    height: calc(200px + 5vw);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -81,18 +81,13 @@ input {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: var(--primary-color); */
+ 
     width: 70%;
     height: 70%;
-    /* opacity: 0.2; */
+   
 
 }
-/* .welcome-screen div {
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
+
 
 .welcome-screen--button {
     color: var(--primary-color);
@@ -169,13 +164,12 @@ input {
 }
 
 .validation_screen__form--submit-button:hover {
-    /* transition: all 0.5s ease-in-out; */
+  
     background-color: var(--primary-color);
 }
 
 .validation_screen__form--submit-button:hover span {
     color: var(--secondary-color);
-    /* transition: all 0.5s ease-in-out; */
 }
 
 
@@ -283,6 +277,4 @@ input {
     to { -webkit-transform: rotate(360deg); }
   }
 
-  /* .button-loading::after:hover {
-    border-top-color: var(--secondary-color);
-  } */
+ 

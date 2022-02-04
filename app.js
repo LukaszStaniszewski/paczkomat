@@ -7,52 +7,32 @@ const page3ToPage1 = document.querySelector(".summary-screen__modal--to-screen-1
 const page3ToPage2 = document.querySelector(".summary-screen__modal--to-screen-2");
 
 
-const phoneNumberList =[ ];
-const codeNumberList = [];
+const phoneNumberList =[];
+const codeNumberList =[]
 
 
 const showError = (name, number, maxLenght) => {
-  
-    if (isNaN(number)) {
+    if (!!number === false) {
         errorMessage.innerText = `${name} musi składać się z samych liczb`
     } else if (number.length > 2){
         errorMessage.innerText = `${name} musi składać się z ${maxLenght} liczb`
     } else {
         errorMessage.innerText = " "
     }
-    
 }
+
 
 const checkForm = (number, errorValue, list, name, maxLenght) => {
-    const split2 = number.value.split('')
-    split2.forEach((e) => {
-        const pInt = parseInt(e)
-
-        if (isNaN(pInt)) {
-            showError(name, pInt)
-        }  else {
-            validNumber(number, errorValue, list, name, maxLenght)
-        }
-     
-    })
-}
-
-const validNumber = (number, errorValue, list, name, maxLenght) => {
     const toInt = parseInt(number.value)
-    console.log("toInt:", toInt)
-    console.log("eerValue", errorValue)
-    console.log("list:", list)
-    console.log("name", name)
-    console.log("maxlength", maxLenght)
     if(toInt > errorValue && list.length < 1) {
         list.push(toInt)
     } else {
         showError(name, toInt, maxLenght)
         list.pop()
     }
-}
-    
 
+    
+}
 
 const formReset = () => {
     phone.value = ""
@@ -62,24 +42,21 @@ const formReset = () => {
 
 const validation = () => {
 
-    // phoneNumberList.length >= 1 && codeNumberList.length >= 1 ? formSubmit.disabled = false : formSubmit.disabled = true 
-    console.log("button disable status:", formSubmit.disabled)
-    if (phoneNumberList.length >= 1 && codeNumberList.length >= 1) {
-        formSubmit.disabled = false 
-        formSubmit.classList.remove("disabled")
-    } else {
-        formSubmit.disabled = true 
-        formSubmit.classList.add("disabled")
-    }
-    console.log("numbervalidation:", phoneNumberList)
-    console.log("delivernumberValidation:", codeNumberList)
-    }
+if (phoneNumberList.length >= 1 && codeNumberList.length >= 1) {
+    formSubmit.disabled = false 
+    formSubmit.classList.remove("disabled")
+} else {
+    formSubmit.disabled = true 
+    formSubmit.classList.add("disabled")
+}
+console.log("numbervalidation:", phoneNumberList)
+console.log("delivernumberValidation:", codeNumberList)
+}
 
 
 phone.addEventListener("keyup", () => {
     const name = "numer telefonu"
-    const listName = "phoneNumberList"
-    checkForm(phone, 99999999, listName, name, 9)
+    checkForm(phone, 99999999, phoneNumberList, name, 9)
     
         validation()
 
@@ -90,15 +67,12 @@ phone.addEventListener("keyup", () => {
 
 delivery.addEventListener("keyup", () => {
     const name = "kod odbioru"
-    const listName = "codeNumberList"
     checkForm(delivery, 999, codeNumberList, name, 4)
 
        validation()
     
     
 })
-
-
 
 
 formSubmit.addEventListener("click", (e) => {
@@ -136,6 +110,7 @@ page3ToPage2.addEventListener("click", () => {
     const goToValidationScreen = () => {
         document.querySelector(".page3").classList.add("hidden")
     }
+    validation()
     goToValidationScreen()
 })
 
@@ -160,6 +135,8 @@ page1ToPage2.addEventListener("click", () => {
             document.querySelector(".page2").classList.remove("hidden")
             formReset()
         }
+
+        validation()
 
 })
 
