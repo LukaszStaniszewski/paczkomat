@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+   <div class="main-container">
+       <div class="logo" >
+           <!-- <img src="https://i.ibb.co/fHzTN6k/pp-logo-przezrocz-monochrom.png" alt=""> -->
+       </div>
+       <div class="spinner hidden">
+
+       </div>
+        <section class="welcome-screen page1">
+            <div>
+                <button class="welcome-screen--button" ><span>Odbierz paczkę</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="validation-screen hidden page2">
+            <form class="validation-screen__form">
+                <div class="validation-screen__form__input-container">
+                    <label>Numer Telefonu: <br/>
+                        <input class="search" type="text" id="phone-number" minlength=""9 maxlength="9" required>
+                    </label>
+                </div>
+        
+                <div class="validation-screen__form__input-container">
+                    <label>Kod odbioru: <br/>
+                        <input class="search" type="text" id="delivery-code" maxlength="4" required>
+                    </label>
+                </div>
+                <button class="validation_screen__form--submit-button" type="submit" >
+                    <span>Odbierz paczkę</span>
+                </button>
+            </form>
+            <div class="validation-screen__form--error-message"></div>
+        </section>
+
+        <section class="summary-screen page3 hidden">
+            <div class="summary-screen__modal">
+                <button class="summary-screen__modal--to-screen-1">
+                    <span>to wszystko na dziś</span>
+                </button>
+                <button class="summary-screen__modal--to-screen-2"> 
+                    <span>odbierz kolejną paczkę</span>
+                </button>
+            </div>
+        </section>
+   </div>
+    <script src="./app.js"></script>
+</body>
+</html>

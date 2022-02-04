@@ -1,0 +1,288 @@
+:root {
+    font-size: 10px;
+    /* rgb(54, 56, 55) */
+    --primary-color: rgb(245,245,245);
+    --secondary-color: #E71905;
+    --tertiary-color:#263032;
+
+    --font-size-small: calc(1.2rem + 0.35vw);
+    --font-size-regular: calc(1.4rem + 0.8vw);
+    --font-size-medium: calc(1.5rem + 1.5vw);
+    --font-size-large:  calc(1.5rem + 2.5vw);
+
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+
+
+}
+
+
+i {
+    list-style: none;
+  }
+
+  /* a:link,
+  a:visited {
+      text-decoration: none;
+      color: white;
+  } */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input {
+    width: 200px;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+    position: absolute;
+    left: -200px
+}
+
+
+
+
+.main-container {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--primary-color);
+    /* background: linear-gradient(0deg, rgba(210,208,204,0.7987570028011204) 0%, rgba(27,28,21,0.804359243697479) 0%), url("https://i.ibb.co/Fg3GbPM/poczta-polska.png"); */
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    background: url("https://i.ibb.co/fHzTN6k/pp-logo-przezrocz-monochrom.png");
+    width: 100vw;
+    height: 250px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/*********************** WELCOME PAGE ***********************/
+.welcome-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: var(--primary-color); */
+    width: 70%;
+    height: 70%;
+    /* opacity: 0.2; */
+
+}
+/* .welcome-screen div {
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.welcome-screen--button {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    padding: 20px 30px;
+    cursor: pointer;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-small);
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+}
+
+.welcome-screen--button:hover {
+    /* transition: all 0.5s ease-in-out; */
+    background-color: var(--primary-color);
+}
+
+.welcome-screen--button:hover span {
+    color: var(--secondary-color);
+    /* transition: all 0.5s ease-in-out; */
+}
+
+/*********************** VALIDATION PAGE ***********************/
+
+.validation-screen{
+    
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.validation-screen__form {
+    font-size: var(--font-size-regular);
+    color:var(--tertiary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.validation-screen__form__input-container {
+    padding-bottom: 15px;
+}
+
+.search {
+    border: 2px solid black;
+}
+
+.validation-screen__form--error-message {
+    margin-top: 30px;
+    background-color: transparent;
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    font-size: var(--font-size-regular);
+    color:var(--secondary-color);
+}
+
+
+
+.validation_screen__form--submit-button {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    padding: 20px 30px 20px 35px;
+    cursor: pointer;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-small);
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    text-align: right;
+    position: relative;
+}
+
+.validation_screen__form--submit-button:hover {
+    /* transition: all 0.5s ease-in-out; */
+    background-color: var(--primary-color);
+}
+
+.validation_screen__form--submit-button:hover span {
+    color: var(--secondary-color);
+    /* transition: all 0.5s ease-in-out; */
+}
+
+
+
+.disabled {
+    background-color: gray;
+    border: none;
+}
+
+.disabled:hover {
+    background-color: gray;
+}
+
+
+.disabled:hover span {
+    color: var(--primary-color);
+}
+
+
+
+/*********************** SUMMARY SCREEN ***********************/
+
+.summary-screen {
+    position: fixed; 
+    z-index: 2; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.summary-screen__modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fefefe;
+    width: 80%; 
+    height: 30%;
+    padding: 20px;
+    border: 1px solid #888;
+}
+
+.summary-screen__modal button {
+    margin: 30px;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    padding: 20px 30px;
+    cursor: pointer;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-small);
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+}
+
+.summary-screen__modal button:hover {
+    /* transition: all 0.5s ease-in-out; */
+    background-color: var(--primary-color);
+}
+
+.summary-screen__modal button:hover span {
+    color: var(--secondary-color);
+    /* transition: all 0.5s ease-in-out; */
+}
+
+/*********************** SPINNER ***********************/
+
+.loading {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--secondary-color);
+    border-radius: 50%;
+    border-top-color: var(--tertiary-color);
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+  }
+  @-webkit-keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+  }
+
+  .button-loading::after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    width: 23px;
+    height: 23px;
+    border: 3px solid var(--tertiary-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    left: 5%;
+    margin-right: 5px;
+    animation: button-spin 1s ease-in-out infinite;
+  }
+
+  @keyframes button-spin {
+    to { -webkit-transform: rotate(360deg); }
+  }
+  @-webkit-keyframes button-spin {
+    to { -webkit-transform: rotate(360deg); }
+  }
+
+  /* .button-loading::after:hover {
+    border-top-color: var(--secondary-color);
+  } */
