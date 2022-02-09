@@ -1,6 +1,5 @@
 :root {
     font-size: 10px;
-    /* rgb(54, 56, 55) */
     --primary-color: rgb(245,245,245);
     --secondary-color: #E71905;
     --tertiary-color:#263032;
@@ -22,11 +21,10 @@ i {
     list-style: none;
   }
 
-  /* a:link,
+  a:link,
   a:visited {
       text-decoration: none;
-      color: white;
-  } */
+  }
 
 *,
 *::before,
@@ -66,14 +64,16 @@ input {
 }
 
 .logo {
-    position: absolute;
+    display: block;
     top: 0;
-    background: url("https://i.ibb.co/fHzTN6k/pp-logo-przezrocz-monochrom.png");
+    background: url("./pp_logo_przezrocz_monochrom.png");
+    height: 30vw;
     width: 100vw;
-    height: calc(200px + 5vw);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    margin-bottom: 50px;
+    
 }
 
 /*********************** WELCOME PAGE ***********************/
@@ -101,24 +101,23 @@ input {
 }
 
 .welcome-screen--button:hover {
-    /* transition: all 0.5s ease-in-out; */
     background-color: var(--primary-color);
 }
 
 .welcome-screen--button:hover span {
     color: var(--secondary-color);
-    /* transition: all 0.5s ease-in-out; */
 }
 
 /*********************** VALIDATION PAGE ***********************/
 
 .validation-screen{
-    
+   
     background-color: transparent;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 70%;
 }
 
 .validation-screen__form {
@@ -136,7 +135,11 @@ input {
 
 .search {
     border: 2px solid black;
+    width: 100%;
+    
+    height: 30px;
 }
+
 
 .validation-screen__form--error-message {
     margin-top: 30px;
@@ -209,7 +212,7 @@ input {
     align-items: center;
     background-color: #fefefe;
     width: 80%; 
-    height: 30%;
+    height: 40%;
     padding: 20px;
     border: 1px solid #888;
 }
