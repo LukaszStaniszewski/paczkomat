@@ -7,9 +7,31 @@ const page3ToPage1 = document.querySelector(".summary-screen__modal--to-screen-1
 const page3ToPage2 = document.querySelector(".summary-screen__modal--to-screen-2");
 
 
-const phoneNumberList =[];
-const codeNumberList =[]
+class Numbers {
+    constructor() {
+      this.phoneNumber = [];
+      this.codeNumber = [];
+      console.log("phoneNumber:",this.phoneNumber)
+    }
+  
+    setPhoneNumber(number) {
+      this.phoneNumber = number;
+    }
+  
+    getPhoneNumber() {
+      return this.phoneNumber;
+    }
 
+    setCodeNumber(number) {
+        this.codeNumber = number;
+      }
+    
+    getCodeNumber() {
+        return this.codeNumber;
+    }
+}
+const validData = new Numbers()  
+console.log("validData:", validData)
 
 const showError = (name, number, maxLenght) => {
     if (!!number === false) {
@@ -22,41 +44,51 @@ const showError = (name, number, maxLenght) => {
 }
 
 
-const checkForm = (number, errorValue, list, name, maxLenght) => {
-    const toInt = parseInt(number.value)
-    if(toInt > errorValue && list.length < 1) {
-        list.push(toInt)
-    } else {
-        showError(name, toInt, maxLenght)
-        list.pop()
-    }
-
+const checkForm2 = (number, name) => {
+    const inputValue = number.value;
+    const regex = /[0123456789]/g
+    const validation = inputValue.match(regex)
+    console.log("validation:",validation)
     
+    if( name === "numer telefonu") {
+       const stringToInt = validation.map(e => {
+           return parseInt(e)
+       })
+       validData.setPhoneNumber(stringToInt)      
+    } else if ( name === "kod odbioru") {
+        const stringToInt = validation.map(e => {
+            return parseInt(e)
+        })
+        validData.setCodeNumber(stringToInt)
+    }   
 }
 
 const formReset = () => {
     phone.value = ""
     delivery.value = ""
+    validData.setPhoneNumber()
+    validData.setCodeNumber()
 }
 
 
 const validation = () => {
-
-if (phoneNumberList.length >= 1 && codeNumberList.length >= 1) {
+const validPhoneNumber = validData.getPhoneNumber()
+console.log("validPhoneNumber:",validPhoneNumber)
+const validCodeNumber = validData.getCodeNumber()
+console.log("validCodeNumber:", validCodeNumber)
+if (validPhoneNumber.length == 9 && validCodeNumber.length == 4) {
     formSubmit.disabled = false 
     formSubmit.classList.remove("disabled")
 } else {
     formSubmit.disabled = true 
     formSubmit.classList.add("disabled")
 }
-console.log("numbervalidation:", phoneNumberList)
-console.log("delivernumberValidation:", codeNumberList)
 }
 
 
 phone.addEventListener("keyup", () => {
     const name = "numer telefonu"
-    checkForm(phone, 99999999, phoneNumberList, name, 9)
+    checkForm2(phone, name)
     
         validation()
 
@@ -67,7 +99,7 @@ phone.addEventListener("keyup", () => {
 
 delivery.addEventListener("keyup", () => {
     const name = "kod odbioru"
-    checkForm(delivery, 999, codeNumberList, name, 4)
+    checkForm2(delivery, name)
 
        validation()
     
@@ -93,6 +125,10 @@ formSubmit.addEventListener("click", (e) => {
           resolve(changePageToSummary());
         }, 1500);
       });
+
+      formReset()
+      formSubmit.disabled = true 
+      formSubmit.classList.add("disabled")
 })
 
 page3ToPage1.addEventListener("click", () => {
@@ -110,7 +146,7 @@ page3ToPage2.addEventListener("click", () => {
     const goToValidationScreen = () => {
         document.querySelector(".page3").classList.add("hidden")
     }
-    validation()
+  
     goToValidationScreen()
 })
 
