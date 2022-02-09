@@ -11,7 +11,6 @@ class Numbers {
     constructor() {
       this.phoneNumber = [];
       this.codeNumber = [];
-      console.log("phoneNumber:",this.phoneNumber)
     }
   
     setPhoneNumber(number) {
@@ -31,13 +30,11 @@ class Numbers {
     }
 }
 const validData = new Numbers()  
-console.log("validData:", validData)
 
-const showError = (name, number, maxLenght) => {
-    if (!!number === false) {
+
+const checkForErrors = (validation, input, name) => {
+    if (validation === null || input.length > validation.length) {
         errorMessage.innerText = `${name} musi składać się z samych liczb`
-    } else if (number.length > 2){
-        errorMessage.innerText = `${name} musi składać się z ${maxLenght} liczb`
     } else {
         errorMessage.innerText = " "
     }
@@ -48,19 +45,21 @@ const checkForm2 = (number, name) => {
     const inputValue = number.value;
     const regex = /[0123456789]/g
     const validation = inputValue.match(regex)
-    console.log("validation:",validation)
-    
-    if( name === "numer telefonu") {
+    console.log("validation:", validation)
+    if( name === "numer telefonu" && validation !== null) {
        const stringToInt = validation.map(e => {
            return parseInt(e)
        })
        validData.setPhoneNumber(stringToInt)      
-    } else if ( name === "kod odbioru") {
+    } else if ( name === "kod odbioru" && validation !== null) {
         const stringToInt = validation.map(e => {
             return parseInt(e)
         })
         validData.setCodeNumber(stringToInt)
-    }   
+    }  
+
+    checkForErrors(validation, inputValue, name)
+    
 }
 
 const formReset = () => {
@@ -72,38 +71,29 @@ const formReset = () => {
 
 
 const validation = () => {
-const validPhoneNumber = validData.getPhoneNumber()
-console.log("validPhoneNumber:",validPhoneNumber)
-const validCodeNumber = validData.getCodeNumber()
-console.log("validCodeNumber:", validCodeNumber)
-if (validPhoneNumber.length == 9 && validCodeNumber.length == 4) {
-    formSubmit.disabled = false 
-    formSubmit.classList.remove("disabled")
-} else {
-    formSubmit.disabled = true 
-    formSubmit.classList.add("disabled")
-}
+    const validPhoneNumber = validData.getPhoneNumber()
+    const validCodeNumber = validData.getCodeNumber()
+
+    if (validPhoneNumber.length == 9 && validCodeNumber.length == 4) {
+        formSubmit.disabled = false 
+        formSubmit.classList.remove("disabled")
+    } else {
+        formSubmit.disabled = true 
+        formSubmit.classList.add("disabled")
+    }
 }
 
 
 phone.addEventListener("keyup", () => {
     const name = "numer telefonu"
     checkForm2(phone, name)
-    
-        validation()
-
-
-     
-    
+     validation()
 })
 
 delivery.addEventListener("keyup", () => {
     const name = "kod odbioru"
     checkForm2(delivery, name)
-
-       validation()
-    
-    
+    validation()   
 })
 
 
@@ -173,7 +163,6 @@ page1ToPage2.addEventListener("click", () => {
         }
 
         validation()
-
 })
 
 
