@@ -2,15 +2,18 @@ const phone = document.querySelector("#phone-number")
 const formSubmit = document.querySelector(".validation_screen__form--submit-button")
 const delivery = document.querySelector("#delivery-code")
 const searchBar = document.querySelector(".search")
-const errorMessage = document.querySelector(".validation-screen__form--error-message")
+const errorMessage = document.querySelector(".validation-screen--error-message")
 const page3ToPage1 = document.querySelector(".summary-screen__modal--to-screen-1");
 const page3ToPage2 = document.querySelector(".summary-screen__modal--to-screen-2");
-
+const touchPanel = document.querySelector(".validation-screen__touch-panel")
 
 class Numbers {
+
     constructor() {
       this.phoneNumber = [];
       this.codeNumber = [];
+
+      console.log("phoneNumber:", this.phoneNumber)
     }
   
     setPhoneNumber(number) {
@@ -28,6 +31,9 @@ class Numbers {
     getCodeNumber() {
         return this.codeNumber;
     }
+
+
+
 }
 const validData = new Numbers()  
 
@@ -36,7 +42,7 @@ const checkForErrors = (validation, input, name) => {
     if (validation === null || input.length > validation.length) {
         errorMessage.innerText = `${name} musi składać się z samych liczb`
     } else {
-        errorMessage.innerText = " "
+        errorMessage.innerText = ""
     }
 }
 
@@ -73,7 +79,8 @@ const formReset = () => {
 const validation = () => {
     const validPhoneNumber = validData.getPhoneNumber()
     const validCodeNumber = validData.getCodeNumber()
-
+    if (validCodeNumber == undefined || validPhoneNumber == undefined) return;
+    console.log(validData.getPhoneNumber())
     if (validPhoneNumber.length == 9 && validCodeNumber.length == 4) {
         formSubmit.disabled = false 
         formSubmit.classList.remove("disabled")
@@ -81,6 +88,36 @@ const validation = () => {
         formSubmit.disabled = true 
         formSubmit.classList.add("disabled")
     }
+}
+
+const createTouchPanel = () => {
+
+    const buttonNumbers = [0,1,2,3,4,5,6,7,8,9]
+    let phoneInputValue = [];
+    let codeInputValue = [];
+    buttonNumbers.map(numberValue => {
+        const panelButton = document.createElement("button")
+        panelButton.innerText = `${numberValue}`
+        touchPanel.append(panelButton)
+        panelButton.addEventListener("click", () => {
+            console.log(numberValue)   
+            if(phone.value.length < 9) {
+                 phone.value += numberValue
+                 phoneInputValue.push(numberValue)
+                validData.setPhoneNumber(phoneInputValue)
+                console.log("getPhoneNumber:", validData.getPhoneNumber())
+                console.log(typeof(phoneInputValue))
+                console.log("phoneInputValue:", phoneInputValue)
+            }
+            if (delivery.value.length < 4 && phone.value.length === 9) {
+                delivery.value += numberValue 
+                codeInputValue.push(numberValue)
+                    validData.setCodeNumber(codeInputValue)
+            }
+            validation()
+        })
+        
+    })
 }
 
 
@@ -161,7 +198,7 @@ page1ToPage2.addEventListener("click", () => {
             document.querySelector(".page2").classList.remove("hidden")
             formReset()
         }
-
+        createTouchPanel()
         validation()
 })
 

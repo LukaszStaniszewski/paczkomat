@@ -141,7 +141,7 @@ input {
 }
 
 
-.validation-screen__form--error-message {
+.validation-screen--error-message {
     margin-top: 30px;
     background-color: transparent;
     width: 100%;

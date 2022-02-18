@@ -26,20 +26,24 @@
             <form class="validation-screen__form">
                 <div class="validation-screen__form__input-container">
                     <label>Numer Telefonu: <br/>
-                        <input class="search" type="text" id="phone-number" minlength=""9 maxlength="9" required>
+                        <input class="search" type="text" id="phone-number" maxlength="9" autocomplete="off" required>
                     </label>
                 </div>
         
                 <div class="validation-screen__form__input-container">
                     <label>Kod odbioru: <br/>
-                        <input class="search" type="text" id="delivery-code" maxlength="4" required>
+                        <input class="search" type="text" id="delivery-code" maxlength="4" autocomplete="off" required>
                     </label>
+                    <input type="checkbox" id="scales" name="scales" checked>
+         
                 </div>
+                <!-- <button data-toggle="button" aria-pressed="false" autocomplete="off">on</button> -->
                 <button class="validation_screen__form--submit-button" type="submit" >
                     <span>Odbierz paczkę</span>
                 </button>
             </form>
-            <div class="validation-screen__form--error-message"></div>
+            <div class="validation-screen__touch-panel"></div>
+            <div class="validation-screen--error-message"></div>
         </section>
 
         <section class="summary-screen page3 hidden">
