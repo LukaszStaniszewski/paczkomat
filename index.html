@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
@@ -12,31 +13,31 @@
        <div class="spinner hidden">
 
        </div>
-        <section class="welcome-screen hidden page1">
+        <section class="welcome-screen page1">
             <div>
                 <button class="welcome-screen--button" ><span>Odbierz paczkę</span>
                 </button>
             </div>
         </section>
 
-        <section class="validation-screen page2">
+        <section class="validation-screen hidden page2">
             <form class="validation-screen__form" id="form">
                 <div class="validation-screen__form__input-container--phone-number">
-                    <label>Numer Telefonu: <br/>
-                        <input  type="text" id="phone-number" maxlength="3" autocomplete="off" required><span> -</span>
-                        <input  type="text" id="phone-number2" maxlength="3" autocomplete="off" required><span> -</span>
-                        <input  type="text" id="phone-number3" maxlength="3" autocomplete="off" required> 
-                    </label>
+                        <label for="phone-number">Numer Telefonu</label>
+                        <div class="container--phone-numbers">
+                            <input  type="text" id="phone-number" maxlength="3" autocomplete="off" required><span class="dash"> -</span>
+                            <input  type="text" id="phone-number2" maxlength="3" autocomplete="off" required><span class="dash"> -</span>
+                            <input  type="text" id="phone-number3" maxlength="3" autocomplete="off" required> 
+                        </div>
+                  
                 </div>
         
                 <div class="validation-screen__form__input-container--pickup-number">
                     <label>Kod odbioru: <br/>
                         <input  type="text" id="pickup-code" maxlength="4" autocomplete="off" required>
                     </label>
-                    <!-- <input type="checkbox" id="scales" name="scales" checked> -->
          
                 </div>
-                <!-- <button data-toggle="button" aria-pressed="false" autocomplete="off">on</button> -->
                 <button class="validation_screen__form--submit-button disabled" type="submit" >
                     <span>Odbierz paczkę</span>
                 </button>
