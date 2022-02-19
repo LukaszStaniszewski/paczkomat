@@ -13,7 +13,7 @@
     --font-weight-regular: 400;
     --font-weight-bold: 700;
 
-
+    font-family: 'Assistant', sans-serif;
 }
 
 
@@ -45,7 +45,9 @@ input {
     left: -200px
 }
 
-
+*:focus {
+    outline: none;
+    }
 
 
 .main-container {
@@ -53,9 +55,6 @@ input {
     width: 100vw;
     background-color: var(--primary-color);
    
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,18 +62,6 @@ input {
     position: relative;
 }
 
-.logo {
-    display: block;
-    top: 0;
-    background: url("./pp_logo_przezrocz_monochrom.png");
-    height: 30vw;
-    width: 100vw;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin-bottom: 50px;
-    
-}
 
 /*********************** WELCOME PAGE ***********************/
 .welcome-screen {
@@ -111,37 +98,82 @@ input {
 /*********************** VALIDATION PAGE ***********************/
 
 .validation-screen{
-   
-    background-color: transparent;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 70%;
+   
 }
 
 .validation-screen__form {
-    font-size: var(--font-size-regular);
+    font-size: var(--font-size-medium);
     color:var(--tertiary-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+    align-items: flex-start;
+    width: max-content;
 }
 
-.validation-screen__form__input-container {
-    padding-bottom: 15px;
-}
-
-.search {
-    border: 2px solid black;
+.validation-screen__form__input-container--phone-number  {
+    padding-bottom: 20px;
     width: 100%;
+}
+
+.container--phone-numbers {
+    display: flex;
+    justify-content: space-between;
+
     
-    height: 30px;
+}
+.validation-screen__form__input-container--phone-number  label{
+    padding-bottom: 20px;
+    display: flex;
+}
+
+.validation-screen__form__input-container--phone-number input {
+    text-align: center;
+    vertical-align:middle;
+    width: 70px;
+    padding: 3px 0;
+    font-size: var(--font-size-regular);
+    border: 2px solid black;
+   
+}
+
+.dash {
+    font-weight: var(--font-weight-light);
+    display: block
 }
 
 
-.validation-screen__form--error-message {
+.validation-screen__form__input-container--pickup-number {
+    padding-bottom: 30px;
+    
+    
+
+}
+.validation-screen__form__input-container--pickup-number input {
+    border: 2px solid black;
+    width: 285px;
+    margin-top: 10px;
+    padding: 3px 0px 3px 6px;
+    font-size: var(--font-size-regular);
+}
+
+input.success {
+    border: 2px solid #32CD32;
+ 
+    box-shadow: 5px 5px 1.5px -5px rgba(50, 205, 50, 1);
+    
+
+}
+
+input.error {
+    border: 2px solid #E71905;
+    box-shadow: 5px 5px 1.5px -5px #E71905;
+}
+.validation-screen--error-message {
     margin-top: 30px;
     background-color: transparent;
     width: 100%;
@@ -164,6 +196,9 @@ input {
     border-radius: 5px;
     text-align: right;
     position: relative;
+    width: max-content;
+    margin: auto;
+   
 }
 
 .validation_screen__form--submit-button:hover {
@@ -173,7 +208,7 @@ input {
 
 .validation_screen__form--submit-button:hover span {
     color: var(--secondary-color);
-}
+} 
 
 
 
@@ -230,13 +265,23 @@ input {
 }
 
 .summary-screen__modal button:hover {
-    /* transition: all 0.5s ease-in-out; */
     background-color: var(--primary-color);
 }
 
 .summary-screen__modal button:hover span {
     color: var(--secondary-color);
-    /* transition: all 0.5s ease-in-out; */
+
+}
+
+@media screen and (max-width: 630px) {
+    .summary-screen__modal {
+        flex-direction: column;
+
+    }
+    .summary-screen__modal button {
+       width: 200px;
+    }
+
 }
 
 /*********************** SPINNER ***********************/
@@ -268,7 +313,7 @@ input {
     border: 3px solid var(--tertiary-color);
     border-top-color: var(--primary-color);
     border-radius: 50%;
-    left: 5%;
+    left: 3%;
     margin-right: 5px;
     animation: button-spin 1s ease-in-out infinite;
   }

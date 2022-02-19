@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
 <body>
    <div class="main-container">
-       <div class="logo" >
-
-       </div>
        <div class="spinner hidden">
 
        </div>
@@ -23,23 +21,29 @@
         </section>
 
         <section class="validation-screen hidden page2">
-            <form class="validation-screen__form">
-                <div class="validation-screen__form__input-container">
-                    <label>Numer Telefonu: <br/>
-                        <input class="search" type="text" id="phone-number" minlength=""9 maxlength="9" required>
-                    </label>
+            <form class="validation-screen__form" id="form">
+                <div class="validation-screen__form__input-container--phone-number">
+                        <label for="phone-number">Numer Telefonu</label>
+                        <div class="container--phone-numbers">
+                            <input  type="text" id="phone-number" maxlength="3" autocomplete="off" required><span class="dash"> -</span>
+                            <input  type="text" id="phone-number2" maxlength="3" autocomplete="off" required><span class="dash"> -</span>
+                            <input  type="text" id="phone-number3" maxlength="3" autocomplete="off" required> 
+                        </div>
+                  
                 </div>
         
-                <div class="validation-screen__form__input-container">
+                <div class="validation-screen__form__input-container--pickup-number">
                     <label>Kod odbioru: <br/>
-                        <input class="search" type="text" id="delivery-code" maxlength="4" required>
+                        <input  type="text" id="pickup-code" maxlength="4" autocomplete="off" required>
                     </label>
+         
                 </div>
-                <button class="validation_screen__form--submit-button" type="submit" >
+                <button class="validation_screen__form--submit-button disabled" type="submit" >
                     <span>Odbierz paczkę</span>
                 </button>
             </form>
-            <div class="validation-screen__form--error-message"></div>
+            <div class="validation-screen__touch-panel"></div>
+            <div class="validation-screen--error-message"></div>
         </section>
 
         <section class="summary-screen page3 hidden">
@@ -53,6 +57,8 @@
             </div>
         </section>
    </div>
-    <script src="./app.js"></script>
+   <script src="form_input.js"></script>
+   <script src="form_validator.js"></script>
+   <script src="app.js"></script>
 </body>
 </html>
