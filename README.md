@@ -1,3 +1,3 @@
 ## paczkomat
 
-work in progress
+application is hosted at: https://lukaszstaniszewski.github.io/paczkomat/
