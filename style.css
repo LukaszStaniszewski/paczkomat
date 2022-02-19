@@ -149,7 +149,7 @@ input {
 
 .validation-screen__form__input-container--pickup-number {
     padding-bottom: 30px;
-    
+    width: 100%;
     
 
 }
