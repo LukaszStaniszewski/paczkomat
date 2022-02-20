@@ -205,7 +205,7 @@ input.error {
     background-color: transparent;
     width: 100%;
     text-align: center;
-    height: max-content;
+    height: 40px;
     font-size: var(--font-size-regular);
     color:var(--secondary-color);
 }
