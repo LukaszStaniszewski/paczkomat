@@ -4,8 +4,8 @@ let languagePack = {
             welcome : "Odbierz paczkę"
         },
         pageTwo: {
-            phoneNumber: "Numer telefonu:",
-            pickupCode: "Kod odbioru:",
+            phoneNumber: "Numer telefonu",
+            pickupCode: "Kod odbioru",
             submitButton: "Otwórz skrytkę",
             errorMessage: "musi się składać z samych liczb",
             successMessage: "Mozesz otworzyć skrytkę",
@@ -23,8 +23,8 @@ let languagePack = {
             welcome : "Pick up package"
         },
         pageTwo: {
-            phoneNumber: "Phone number:",
-            pickupCode: "Delivery code:",
+            phoneNumber: "Phone number",
+            pickupCode: "Delivery code",
             submitButton: "Open the locker",
             errorMessage: "must contains only numbers",
             successMessage: "You can open the locker",

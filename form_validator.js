@@ -4,10 +4,10 @@ class FormValidator {
         this.formInputs = []
         this.form = document.querySelector("#form")
         this.formButton = document.querySelector(".validation_screen__form--submit-button")
-        this.newFormInput({formInputSelector: "#phone-number", requiredLength: 3, name: "numer telefonu", languagePack})
-        this.newFormInput({formInputSelector: "#phone-number2", requiredLength: 3, name: "numer telefonu", languagePack} )
-        this.newFormInput({formInputSelector: "#phone-number3", requiredLength: 3, name: "numer telefonu", languagePack})
-        this.newFormInput({formInputSelector: "#pickup-code", requiredLength: 4, name: "kod odbioru", languagePack})
+        this.newFormInput({formInputSelector: "#phone-number", requiredLength: 3, name: languagePack.phoneNumber, languagePack})
+        this.newFormInput({formInputSelector: "#phone-number2", requiredLength: 3, name: languagePack.phoneNumber, languagePack} )
+        this.newFormInput({formInputSelector: "#phone-number3", requiredLength: 3, name: languagePack.phoneNumber, languagePack})
+        this.newFormInput({formInputSelector: "#pickup-code", requiredLength: 4, name: languagePack.pickupCode, languagePack})
         this.formButton.innerText = this.languagePack.submitButton
         this.changeLabelLanguage()
         this.init()
@@ -29,8 +29,8 @@ class FormValidator {
         const phoneNumber = document.querySelectorAll("label")[0]
         const pickupCode = document.querySelectorAll("label")[1]
 
-        phoneNumber.innerText = this.languagePack.phoneNumber
-        pickupCode.innerText = this.languagePack.pickupCode
+        phoneNumber.innerText = `${this.languagePack.phoneNumber}:`
+        pickupCode.innerText = `${this.languagePack.pickupCode}:`
     }
 
     inputValidation() {
