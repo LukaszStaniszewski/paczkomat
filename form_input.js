@@ -1,9 +1,9 @@
 class FormInput {
-    constructor({formInputSelector, requiredLength, name}) {
+    constructor({formInputSelector, requiredLength, name, languagePack}) {
         this.formInput = document.querySelector(formInputSelector)
-        this.id = this.formInput.id
         this.length = requiredLength
-        this.name = name       
+        this.name = name      
+        this.languagePack = languagePack 
     }
 
     validation() {
@@ -18,7 +18,7 @@ class FormInput {
             this.showSuccess()
             return true
         } else if (!regex.test(this.formInput.value.trim())) {
-            this.showError(`${this.name} musi się składać z samych liczb`)
+            this.showError(`${this.name} ${this.languagePack.errorMessage}`)
             return false
         } else {
             this.reset("")
@@ -48,8 +48,10 @@ class FormInput {
     }
 
     inputValueReset() {
+        const errorMessage = document.querySelector(".validation-screen--error-message")
         this.formInput.value = "";
         this.formInput.classList.remove("success");
+        errorMessage.innerText = ""
     }
 
 }
