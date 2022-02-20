@@ -18,12 +18,19 @@
                 <button class="welcome-screen--button" ><span>Odbierz paczkę</span>
                 </button>
             </div>
+            <span class="welcome-screen--choose-language-text">Wybierz język / Choose language</span>
+                <div>
+                    <button class="welcome-screen--switch-to-polish clicked" ><span>Polski</span>
+                    </button>
+                    <button class="welcome-screen--switch-to-english" type="toggle" ><span>English</span>
+                    </button>
+                </div>
         </section>
 
         <section class="validation-screen hidden page2">
             <form class="validation-screen__form" id="form">
                 <div class="validation-screen__form__input-container--phone-number">
-                        <label for="phone-number">Numer Telefonu</label>
+                        <label for="phone-number">Numer telefonu</label>
                         <div class="container--phone-numbers">
                             <input  type="text" id="phone-number" maxlength="3" autocomplete="off" required><span class="dash"> -</span>
                             <input  type="text" id="phone-number2" maxlength="3" autocomplete="off" required><span class="dash"> -</span>
@@ -33,13 +40,13 @@
                 </div>
         
                 <div class="validation-screen__form__input-container--pickup-number">
-                    <label>Kod odbioru: <br/>
-                        <input  type="text" id="pickup-code" maxlength="4" autocomplete="off" required>
+                    <label >Kod odbioru: <br/>
                     </label>
+                    <input  type="text" id="pickup-code" maxlength="4" autocomplete="off" required>
          
                 </div>
-                <button class="validation_screen__form--submit-button disabled" type="submit" >
-                    <span>Odbierz paczkę</span>
+                <button class="validation_screen__form--submit-button disabled" disabled="true" type="submit" >
+                    <span>Otwórz skrytkę</span>
                 </button>
             </form>
             <div class="validation-screen__touch-panel"></div>
@@ -49,14 +56,15 @@
         <section class="summary-screen page3 hidden">
             <div class="summary-screen__modal">
                 <button class="summary-screen__modal--to-screen-1">
-                    <span>to wszystko na dziś</span>
+                    <span>To wszystko na dziś</span>
                 </button>
                 <button class="summary-screen__modal--to-screen-2"> 
-                    <span>odbierz kolejną paczkę</span>
+                    <span>Odbierz kolejną paczkę</span>
                 </button>
             </div>
         </section>
    </div>
+   <script src="data.js"></script>
    <script src="form_input.js"></script>
    <script src="form_validator.js"></script>
    <script src="app.js"></script>
