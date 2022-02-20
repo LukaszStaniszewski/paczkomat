@@ -126,6 +126,14 @@ input {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-width: max-content;
+    min-height: max-content;
+    width: 60%;
+    height: 60%;
+    background-color: white;
+    border: 2px solid var(--tertiary-color);
+    border-radius: 10px;
+    padding: 0px 10px;
    
 }
 
@@ -178,7 +186,6 @@ padding-bottom: 20px;
 }
 .validation-screen__form__input-container--pickup-number input {
     width: 100%;
-    margin-top: 10px;
     padding: 3px 0px 3px 6px;
     font-size: var(--font-size-regular);
     border: 2px solid black;
@@ -194,7 +201,7 @@ input.error {
     box-shadow: 5px 5px 1.5px -5px #E71905;
 }
 .validation-screen--error-message {
-    margin-top: 30px;
+    margin-top: 20px;
     background-color: transparent;
     width: 100%;
     text-align: center;
@@ -220,7 +227,7 @@ input.error {
 }
 
 .validation_screen__form--submit-button:hover {
-    background-color: var(--primary-color);
+    background-color: white;
     color: var(--secondary-color);
 }
 
@@ -251,11 +258,12 @@ input.error {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fefefe;
+    background-color: var(--primary-color);
     width: 80%; 
-    height: 40%;
+    height: 60%;
     padding: 20px;
-    border: 1px solid #888;
+    border: 2px solid var(--tertiary-color);
+    border-radius: 10px;
 }
 
 .summary-screen__modal button {
