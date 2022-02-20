@@ -26,7 +26,7 @@ let languagePack = {
             phoneNumber: "Phone number:",
             pickupCode: "Delivery code:",
             submitButton: "Open the locker",
-            errorMessage: "musi się składać z samych liczb",
+            errorMessage: "must contains only numbers",
             successMessage: "You can open the locker",
             loadingMessage: "Wait untill the locker is open",
 
