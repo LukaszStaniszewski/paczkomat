@@ -1,4 +1,4 @@
-class FormInput {
+export default class FormInput {
     constructor({formInputSelector, requiredLength, name, languagePack}) {
         this.formInput = document.querySelector(formInputSelector)
         this.length = requiredLength
@@ -21,15 +21,15 @@ class FormInput {
             this.showError(`${this.name} ${this.languagePack.errorMessage}`)
             return false
         } else {
-            this.reset("")
+            this.reset
             return false
         }
         
     }
 
-    reset(message = "")  {
+    reset()  {
         const errorMessage = document.querySelector(".validation-screen--error-message")
-        errorMessage.innerText = message
+        errorMessage.innerText = ""
         this.formInput.classList.remove("error")
         this.formInput.classList.remove("success")
     }

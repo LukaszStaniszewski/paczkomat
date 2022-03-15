@@ -1,14 +1,8 @@
-const formSubmit = document.querySelector(".validation_screen__form--submit-button")
-
-const page3ToPage1 = document.querySelector(".summary-screen__modal--to-screen-1");
-const page3ToPage2 = document.querySelector(".summary-screen__modal--to-screen-2");
-const page1ToPage2 = document.querySelector(".welcome-screen--button")
-const changeToEnglish = document.querySelector(".welcome-screen--switch-to-english")
-const changeToPolish = document.querySelector(".welcome-screen--switch-to-polish")
-const load = document.querySelector(".spinner")
-const message = document.querySelector(".validation-screen--error-message")
-
-const formValidator1 = (props = languagePack.polish.pageTwo) => {
+import FormValidator from "./form_validator";
+import LANGUAGE_PACK from "./language-mock-data";
+import {page1ToPage2, page3ToPage1, page3ToPage2, load, changeToEnglish, changeToPolish} from "./selectors"
+console.log(LANGUAGE_PACK)
+const formValidator1 = (props = LANGUAGE_PACK.polish.pageTwo) => {
     const formValidator = new FormValidator(props)
 }
 
@@ -55,26 +49,22 @@ const spinner = () => {
     load.classList.add("loading")
 }
 
-const submitButtonSpinner = (msg) => {
-    formSubmit.classList.remove("hidden")
-    formSubmit.classList.add("button-loading")
-    message.innerText = msg
+
+const changeLanguage = (language) => {
+    page1ToPage2.innerHTML = LANGUAGE_PACK[language].pageOne.welcome
+    formValidator1(LANGUAGE_PACK[language].pageTwo)
+    page3ToPage1.innerText = LANGUAGE_PACK[language].pageThree.buttonToPageOne
+    page3ToPage2.innerText = LANGUAGE_PACK[language].pageThree.buttonToPageTwo
 }
 
 changeToEnglish.addEventListener("click", () => {
     changeToPolish.classList.remove("clicked")
     changeToEnglish.classList.add("clicked")
-    page1ToPage2.innerHTML = languagePack.english.pageOne.welcome
-    formValidator1(languagePack.english.pageTwo)
-    page3ToPage1.innerText = languagePack.english.pageThree.buttonToPageOne
-    page3ToPage2.innerText = languagePack.english.pageThree.buttonToPageTwo
+    changeLanguage("english")
 })
 
 changeToPolish.addEventListener("click", () => {
     changeToEnglish.classList.remove("clicked")
     changeToPolish.classList.add("clicked")
-    page1ToPage2.innerHTML = languagePack.polish.pageOne.welcome
-    formValidator1(languagePack.polish.pageTwo)
-    page3ToPage1.innerText = languagePack.polish.pageThree.buttonToPageOne
-    page3ToPage2.innerText = languagePack.polish.pageThree.buttonToPageTwo
+    changeLanguage("polish")
 })
