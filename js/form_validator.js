@@ -1,6 +1,6 @@
-import {formSubmit, message} from "./selectors"
+import {formSubmit, message} from "./selectors.js"
 
-import FormInput from "./form_input"
+import FormInput from "./form_input.js"
 
 export default class FormValidator {
     constructor(languagePack) {

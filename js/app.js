@@ -1,7 +1,6 @@
-import FormValidator from "./form_validator";
-import LANGUAGE_PACK from "./language-mock-data";
-import {page1ToPage2, page3ToPage1, page3ToPage2, load, changeToEnglish, changeToPolish} from "./selectors"
-console.log(LANGUAGE_PACK)
+import {page1ToPage2, page3ToPage1, page3ToPage2, load, changeToEnglish, changeToPolish} from "./selectors.js"
+import FormValidator from "./form_validator.js";
+import LANGUAGE_PACK from "./language-mock-data.js";
 const formValidator1 = (props = LANGUAGE_PACK.polish.pageTwo) => {
     const formValidator = new FormValidator(props)
 }
