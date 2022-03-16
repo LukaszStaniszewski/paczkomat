@@ -1,28 +1,22 @@
 import {page1ToPage2, page3ToPage1, page3ToPage2, load, changeToEnglish, changeToPolish} from "./selectors.js"
 import FormValidator from "./form_validator.js";
 import LANGUAGE_PACK from "./language-mock-data.js";
+
 const formValidator1 = (props = LANGUAGE_PACK.polish.pageTwo) => {
     const formValidator = new FormValidator(props)
 }
 
 formValidator1()
+
+
 page3ToPage1.addEventListener("click", () => {
-   
-    const goToWelcomeScreen = () => {
-        document.querySelector(".page2").classList.add("hidden")
-        document.querySelector(".page3").classList.add("hidden")
-        document.querySelector(".page1").classList.remove("hidden")
-    }
-    goToWelcomeScreen()
+    document.querySelector(".page2").classList.add("hidden")
+    document.querySelector(".page3").classList.add("hidden")
+    document.querySelector(".page1").classList.remove("hidden")
 })
 
 page3ToPage2.addEventListener("click", () => {
-
-    const goToValidationScreen = () => {
-        document.querySelector(".page3").classList.add("hidden")
-    }
-  
-    goToValidationScreen()
+    document.querySelector(".page3").classList.add("hidden")
 })
 
 page1ToPage2.addEventListener("click", () => {
@@ -43,15 +37,14 @@ page1ToPage2.addEventListener("click", () => {
 })
 
 const spinner = () => {
-   
     load.classList.remove("hidden");
     load.classList.add("loading")
 }
 
 
 const changeLanguage = (language) => {
-    page1ToPage2.innerHTML = LANGUAGE_PACK[language].pageOne.welcome
     formValidator1(LANGUAGE_PACK[language].pageTwo)
+    page1ToPage2.innerHTML = LANGUAGE_PACK[language].pageOne.welcome
     page3ToPage1.innerText = LANGUAGE_PACK[language].pageThree.buttonToPageOne
     page3ToPage2.innerText = LANGUAGE_PACK[language].pageThree.buttonToPageTwo
 }

@@ -6,3 +6,4 @@ export const changeToEnglish = document.querySelector(".welcome-screen--switch-t
 export const changeToPolish = document.querySelector(".welcome-screen--switch-to-polish")
 export const load = document.querySelector(".spinner")
 export const message = document.querySelector(".validation-screen--error-message")
+export const errorMessage = document.querySelector(".validation-screen--error-message")

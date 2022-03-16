@@ -1,4 +1,7 @@
+import { errorMessage } from "./selectors.js"
+
 export default class FormInput {
+
     constructor({formInputSelector, requiredLength, name, languagePack}) {
         this.formInput = document.querySelector(formInputSelector)
         this.length = requiredLength
@@ -28,7 +31,6 @@ export default class FormInput {
     }
 
     reset()  {
-        const errorMessage = document.querySelector(".validation-screen--error-message")
         errorMessage.innerText = ""
         this.formInput.classList.remove("error")
         this.formInput.classList.remove("success")
@@ -40,7 +42,6 @@ export default class FormInput {
     }
 
     showError(message) {
-        const errorMessage = document.querySelector(".validation-screen--error-message")
         errorMessage.innerText = message
         this.formInput.classList.remove("success")
         this.formInput.classList.add("error")
@@ -48,7 +49,6 @@ export default class FormInput {
     }
 
     inputValueReset() {
-        const errorMessage = document.querySelector(".validation-screen--error-message")
         this.formInput.value = "";
         this.formInput.classList.remove("success");
         errorMessage.innerText = ""
