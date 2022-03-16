@@ -2,7 +2,7 @@
 
 application is hosted at: https://lukaszstaniszewski.github.io/paczkomat__parcel-locker/
 
-# instalation
+### instalation
 
 1. `git clone git@github.com:LukaszStaniszewski/paczkomat__parcel-locker.git` [it requires assigned SSH key to your GitHub account ](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
 
