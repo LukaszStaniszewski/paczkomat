@@ -1,4 +1,8 @@
-class FormValidator {
+import {formSubmit, message} from "./selectors.js"
+
+import FormInput from "./form_input.js"
+
+export default class FormValidator {
     constructor(languagePack) {
         this.languagePack = languagePack
         this.formInputs = []
@@ -72,4 +76,10 @@ class FormValidator {
     }
     
     
+}
+
+const submitButtonSpinner = (msg) => {
+    formSubmit.classList.remove("hidden")
+    formSubmit.classList.add("button-loading")
+    message.innerText = msg
 }

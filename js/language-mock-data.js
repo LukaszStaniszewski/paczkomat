@@ -1,4 +1,4 @@
-let languagePack = {
+const LANGUAGE_PACK= {
     polish: {
         pageOne: {
             welcome : "Odbierz paczkę"
@@ -37,3 +37,5 @@ let languagePack = {
         }
     },
 }
+
+export default LANGUAGE_PACK
